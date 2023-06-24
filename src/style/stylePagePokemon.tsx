@@ -3,14 +3,19 @@ import { createGlobalStyle } from "styled-components";
 export const StylePagePokemon = createGlobalStyle`
 
 .containerPage {
+  position: relative;
   display: flex;
   width: 90%;
   margin: 0 auto;
   gap: 2rem;
   align-items: center;
+  justify-content: center;
   margin: 2rem 0;
   border: solid 1px var(--text-color-1);
-  
+@media (max-width: 885px ){ 
+  flex-direction: column;
+}
+
 }
 
 .back-button{
@@ -26,17 +31,20 @@ export const StylePagePokemon = createGlobalStyle`
         width: 100%;
         height: 100%;
     }
+    @media (max-width: 540px ){
+  position: absolute;
+  left: 10px;
 }
-
+}
     
 .card-container {
   width: 500px;
   margin:  1rem 0;
   
-  
   .pokemon-container {
     position: relative;
     width: 100%;
+    min-width: 450px;
     color: var(--fifth-color);
     
     .power-level {
@@ -77,7 +85,7 @@ export const StylePagePokemon = createGlobalStyle`
         z-index: 1;
       }
       
-    } // !.power-level
+    } // power-level
     
     .poke-card {
       position: relative;
@@ -123,7 +131,7 @@ export const StylePagePokemon = createGlobalStyle`
         li {
           display: block;
           float: left;
-          width: 33.333333%;
+          width: 33%;
           margin: 10px 0;
           padding: 0 8px;
           font-size: .85em;
@@ -151,7 +159,7 @@ export const StylePagePokemon = createGlobalStyle`
             font-size: 1.2rem;
         }
         
-      } // .info
+      } // info
       
       .grafit-stats {
         flex-direction: column;
@@ -159,18 +167,14 @@ export const StylePagePokemon = createGlobalStyle`
         padding: 10px 0;
         font-size: .75em;
         font-weight: 600;
-        border-top: 1px solid #ccc;
+        border-top: 1px solid var(--border-color);
 
-      } // .grafit-stats
+      } // grafit-stats
       
-
-      
-    } // !.poke-card
+    } // card
     
-  } // !.pokemon-container
+  } // pokemon-container
     
 }
-
-
 
 `;

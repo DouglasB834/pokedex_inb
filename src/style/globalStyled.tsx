@@ -89,7 +89,6 @@ export const GlobalStyle = createGlobalStyle`
 
 .search:hover{
   background-color: var(--third-color);
-
 }
 
 @media (max-width: 427px) {
@@ -104,9 +103,7 @@ export const GlobalStyle = createGlobalStyle`
   display: flex;
   align-items: start;
   padding: 1.4rem 0;
-  justify-content: space-between;
-
-  
+  justify-content: space-between;  
 }
 
 .container-paginacao .paginacao {
@@ -117,6 +114,7 @@ export const GlobalStyle = createGlobalStyle`
   padding: 5px;
   border-radius: 5px;
 }
+
 .paginacao button{
   border:  none;
   cursor: pointer;
@@ -131,20 +129,14 @@ export const GlobalStyle = createGlobalStyle`
 .container-favorite ul{
     width: 100%;
     display: flex;
-    gap :1rem ;
-    
-  
+    gap :1rem ; 
 }
 .container-favorite ul  li{
     background-color: var(--fourth-color);
     border-radius: 50%;
     width: 100%;
     display: flex;
-  
 }
-
-
-
 
 /* loading screen */
 
@@ -166,9 +158,5 @@ export const GlobalStyle = createGlobalStyle`
   position: absolute;
   width: 340px;
 }
-
-
-
-
 
 `;

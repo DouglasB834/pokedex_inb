@@ -1,15 +1,17 @@
-import { IPokemonCard } from "./listPokemons";
+import { IPokemonCard, IPokemonSpecies } from "./listPokemons";
 
 export interface IPokemonsProvider {
   pokemons: IPokemon[];
   page: number;
   isLoading: boolean;
   setPage: (name: number) => void;
+  pokemonSpecies: (id: number) => void;
   totalPages: number;
   searchPokemon: string;
   setSearchPokemon: (name: string) => void;
   searchPokemonByName: (name: string) => void;
   pokemon?: IPokemonCard;
+  speciesPokemon?: IPokemonSpecies;
 }
 
 export interface IChildren {

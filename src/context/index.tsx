@@ -1,6 +1,6 @@
 "use client";
 import { IChildren, IPokemon, IPokemonsProvider } from "@/interfaces/context";
-import { IPokemonCard } from "@/interfaces/listPokemons";
+import { IPokemonCard, IPokemonSpecies } from "@/interfaces/listPokemons";
 import { api, getAllPokemon } from "@/utils/axios";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -12,6 +12,9 @@ export const UseContextPokemonProvider = ({ children }: IChildren) => {
   const [pokemons, setPokemons] = useState<IPokemon[]>([] as IPokemon[]);
   const [pokemon, setPokemon] = useState<IPokemonCard | undefined>(undefined);
   const [searchPokemon, setSearchPokemon] = useState<string>("");
+  const [speciesPokemon, setSpeciesPokemon] = useState<IPokemonSpecies>(
+    {} as IPokemonSpecies
+  );
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -49,6 +52,15 @@ export const UseContextPokemonProvider = ({ children }: IChildren) => {
     }
   };
 
+  const pokemonSpecies = async (id: number) => {
+    try {
+      const res = await api.get(`pokemon-species/${id}`);
+      setSpeciesPokemon(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchPokemons(limitPage, limitPage * page);
   }, [pokemon, page]);
@@ -64,6 +76,8 @@ export const UseContextPokemonProvider = ({ children }: IChildren) => {
         searchPokemon,
         setSearchPokemon,
         searchPokemonByName,
+        pokemonSpecies,
+        speciesPokemon,
       }}
     >
       {children}

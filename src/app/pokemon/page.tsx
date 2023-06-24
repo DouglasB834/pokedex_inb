@@ -2,16 +2,25 @@
 import { IPokemonCard } from "@/interfaces/listPokemons";
 import { useState, useEffect } from "react";
 import { api } from "@/utils/axios";
-import { GrafitStatus, Habilites, ListStatus } from "./styled";
+import {
+  ContainerSpecies,
+  GrafitStatus,
+  Habilites,
+  ListStatus,
+} from "./styled";
 import { IconBack } from "@/assets/iconsBack";
 import { useRouter } from "next/navigation";
+import { usePokemon } from "@/context";
 
 export default function Pokemon({
   searchParams,
 }: {
   searchParams: { id: string };
 }) {
+  const { pokemonSpecies, speciesPokemon } = usePokemon();
   const [pokemon, setPokemon] = useState<IPokemonCard>({} as IPokemonCard);
+
+  const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1);
 
   const handlePokemon = () => {
     const getPokemon = async (id: number) => {
@@ -27,6 +36,7 @@ export default function Pokemon({
 
   useEffect(() => {
     if (searchParams.id) {
+      pokemonSpecies(Number(searchParams.id));
       handlePokemon();
     }
   }, [searchParams.id]);
@@ -35,8 +45,7 @@ export default function Pokemon({
   const handleRedirect = () => {
     router.push(`/`);
   };
-
-  console.log(pokemon);
+  console.log(speciesPokemon);
   return (
     <div className="mainContainer">
       <div className="containerPage">
@@ -58,7 +67,7 @@ export default function Pokemon({
 
             <div className="poke-card">
               <div className="name">
-                <h1>{pokemon.name}</h1>
+                <h1>{capitalize(pokemon.name)}</h1>
                 <div className="hp">
                   <span>HP {pokemon.stats?.[0]?.base_stat}</span>
                 </div>
@@ -93,12 +102,13 @@ export default function Pokemon({
                 <h3>Habilidades</h3>
                 {pokemon?.abilities?.map((ability, i) => (
                   <li key={i}>
-                    <p>{ability?.ability?.name}</p>
+                    <p>{capitalize(ability?.ability?.name)}</p>
                   </li>
                 ))}
               </Habilites>
 
               <GrafitStatus>
+                <h3>Status</h3>
                 {pokemon.stats?.map((stat, i) => (
                   <ListStatus
                     status={stat?.base_stat}
@@ -110,9 +120,12 @@ export default function Pokemon({
                         ? stat?.stat?.name.replace("special-attack", "Sp.Atk")
                         : stat?.stat?.name.includes("special-defense")
                         ? stat?.stat?.name.replace("special-defense", "Sp.Def")
-                        : stat?.stat?.name}
+                        : capitalize(stat?.stat?.name)}
                     </p>
-                    <span>{stat?.base_stat}</span>
+
+                    <p className="number-stat">
+                      <span>{stat?.base_stat}</span>
+                    </p>
                   </ListStatus>
                 ))}
               </GrafitStatus>
@@ -121,73 +134,42 @@ export default function Pokemon({
           {/* card pokemon info  */}
         </div>
 
-        <div>
-          <h3>aquiiiiii</h3>
-        </div>
+        <ContainerSpecies>
+          <h2>Informação da Especie</h2>
+          <div>
+            <div className="info-species">
+              <p>
+                Area de Capitura: <span>{speciesPokemon?.capture_rate}</span>
+              </p>
+              <p>
+                Cor: <span>{speciesPokemon?.color?.name}</span>{" "}
+              </p>
+
+              <p>
+                Habitate: <span> {speciesPokemon?.habitat?.name}</span>{" "}
+              </p>
+              <p>
+                Corpo: <span>{speciesPokemon?.shape?.name}</span>{" "}
+              </p>
+              <ul>
+                <h4> Pertence ao Gruope:</h4>
+                <li>
+                  {speciesPokemon?.egg_groups?.map((eggGroup, i) => (
+                    <p>{eggGroup?.name}</p>
+                  ))}
+                </li>
+              </ul>
+            </div>
+            <div className="tip-info">
+              <h3>Dicas sobre Pokemon</h3>
+              <p>{speciesPokemon?.flavor_text_entries?.[0]?.flavor_text}</p>
+              <p>{speciesPokemon?.flavor_text_entries?.[4]?.flavor_text}</p>
+              <p>{speciesPokemon?.flavor_text_entries?.[5]?.flavor_text}</p>
+              <p>{speciesPokemon?.flavor_text_entries?.[8]?.flavor_text}</p>
+            </div>
+          </div>
+        </ContainerSpecies>
       </div>
     </div>
-
-    // //main container
-    // <main classNameName="mainContainer">
-    //   <div className="container">
-    //     <div>
-    //       <div>
-    //         <figure>
-    //           <img
-    //             src={
-    //               pokemon?.sprites?.versions["generation-v"]?.["black-white"]
-    //                 ?.animated?.front_default
-    //             }
-    //             alt={pokemon?.name}
-    //             title={pokemon?.name}
-    //           />
-    //         </figure>
-
-    //         <aside>
-    //           <figure>
-    //             <img
-    //               src={pokemon?.sprites?.front_default}
-    //               alt={pokemon?.name}
-    //               title={pokemon?.name}
-    //             />
-    //           </figure>
-    //           {pokemon?.sprites?.front_shiny && (
-    //             <figure>
-    //               <img
-    //                 src={pokemon?.sprites?.front_shiny}
-    //                 alt={pokemon?.name}
-    //                 title={pokemon?.name}
-    //               />{" "}
-    //               <figcaption>
-    //                 <span>Raro: shiny</span>
-    //               </figcaption>
-    //             </figure>
-    //           )}
-    //         </aside>
-    //       </div>
-
-    //       <div>
-    //         <h1>{pokemon?.name}</h1>
-    //         <ul>
-    //           {pokemon?.stats?.map((stat) => (
-    //             <li key={stat?.stat?.name}>
-    //               <p>
-    //                 {stat?.stat?.name.includes("special")
-    //                   ? stat?.stat?.name.replace("special-", "Sp. ")
-    //                   : stat?.stat?.name}
-    //                 - {stat?.base_stat}
-    //               </p>
-    //             </li>
-    //           ))}
-    //         </ul>
-    //       </div>
-    //     </div>
-
-    //     <section>
-    //       <div>Evoluções</div>
-    //       <div>tranformações lugar fraqueza força</div>
-    //     </section>
-    //   </div>
-    // </main>
   );
 }
