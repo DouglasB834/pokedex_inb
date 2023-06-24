@@ -1,3 +1,5 @@
+import { IPokemonCard } from "./listPokemons";
+
 export interface IPokemonsProvider {
   pokemons: IPokemon[];
   setOffset: (offset: number) => void;
@@ -14,14 +16,10 @@ export interface IResPokemons {
   previous: string;
   results: IPokemon[];
 }
-export interface IPokemon {
-  id: number;
-  stats: IStats[];
-  sprites: ISprites;
-  name: string;
+export interface IPokemon extends IPokemonCard {
   url: string;
-  types: ITypes[];
 }
+
 export interface IStats {
   base_stat: number;
   effort: number;
@@ -56,5 +54,6 @@ export interface IGenerationV {
 export interface IBlackWhite {
   animated: {
     front_default: string;
+    front_shiny: string;
   };
 }

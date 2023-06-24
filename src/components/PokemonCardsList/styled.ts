@@ -14,7 +14,7 @@ export const StyledPookemonCards = styled.li`
   font-family: inherit;
   border-radius: 5px;
 
-  figcaption {
+  figure {
     width: 120px;
     display: flex;
     justify-content: center;

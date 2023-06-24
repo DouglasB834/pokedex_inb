@@ -1,5 +1,6 @@
 "use client";
 import { IChildren, IPokemon, IPokemonsProvider } from "@/interfaces/context";
+import { IPokemonCard } from "@/interfaces/listPokemons";
 import { api, getAllPokemon } from "@/utils/axios";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -9,6 +10,7 @@ export const UseContextPokemon = createContext<IPokemonsProvider>(
 
 export const UseContextPokemonProvider = ({ children }: IChildren) => {
   const [pokemons, setPokemons] = useState<IPokemon[]>([] as IPokemon[]);
+  const [pokemon, setPokemon] = useState<IPokemonCard>({} as IPokemonCard);
   const [offset, setOffset] = useState<number>(0);
   const limit = 25;
 
@@ -20,6 +22,15 @@ export const UseContextPokemonProvider = ({ children }: IChildren) => {
       });
       const result = await Promise.all(data);
       setPokemons(result as IPokemon[]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getPokemon = async (id: number) => {
+    try {
+      const res = await api.get(`pokemon/${id}`);
+      setPokemon(res.data);
     } catch (error) {
       console.log(error);
     }

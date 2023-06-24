@@ -1,7 +1,9 @@
+"use client";
 import { UseContextPokemonProvider } from "@/context";
 import "./globals.css";
 import { Roboto } from "next/font/google";
 import { Header } from "@/components/Header/header";
+import { GlobalStyle } from "@/style/globalStyled";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -21,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <UseContextPokemonProvider>
+        <GlobalStyle />
         <body className={roboto.className}>
           <Header />
           {children}

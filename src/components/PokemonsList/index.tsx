@@ -1,13 +1,12 @@
 "use client";
 import { usePokemon } from "@/context";
-import { StyledPokemonList } from "./styled";
 import { PokemonsCardList } from "../PokemonCardsList";
 
 export const PokemonsList = () => {
   const { pokemons } = usePokemon();
 
   return (
-    <StyledPokemonList>
+    <ul className="pokemonList">
       {pokemons?.map((pokemon) => (
         <PokemonsCardList
           key={pokemon?.id}
@@ -20,6 +19,6 @@ export const PokemonsList = () => {
           types={pokemon?.types}
         />
       ))}
-    </StyledPokemonList>
+    </ul>
   );
 };

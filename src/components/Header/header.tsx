@@ -1,8 +1,7 @@
 "use client";
 
-import { ContainerHeader, InputContainer, TagLogo, Tagheader } from "./styled";
+// import { ContainerHeader, InputContainer, TagLogo, Tagheader } from "./styled";
 import { Roboto } from "next/font/google";
-import { BsSearchHeart } from "react-icons/bs";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -15,23 +14,23 @@ export const Header = () => {
   };
 
   return (
-    <ContainerHeader>
-      <Tagheader>
-        <TagLogo className={roboto.className} href="/">
+    <div className="container-header ">
+      <header className="tag-header">
+        <a className="tag-logo" href="/">
           Pokedex INB
-        </TagLogo>
+        </a>
 
         <div>
-          <InputContainer>
+          <div className="input-container">
             <input
               placeholder="Procurando por algo especifico ?"
               type="text"
               onChange={(e) => handleSearch(e.target.value)}
             />
-            <span className="searchIcon"> 🔍{/* <BsSearchHeart /> */}</span>
-          </InputContainer>
+            <span className="searchIcon"> 🔍</span>
+          </div>
         </div>
-      </Tagheader>
-    </ContainerHeader>
+      </header>
+    </div>
   );
 };

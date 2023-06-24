@@ -6,6 +6,27 @@
   --fifth-color: #703f5d;
   --text-color-1: #ffffff;
 }
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-color);
+  min-height: 100vh;
+  align-items: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.pokemonList {
+  display: grid;
+  justify-content: space-around;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, 256px);
+  margin-top: 1rem;
+}
 
 * {
   box-sizing: border-box;
@@ -19,7 +40,7 @@ body {
   overflow-x: hidden;
 }
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -27,9 +48,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
 
-a {
+a,
+li {
   list-style: none;
   text-decoration: none;
 }
