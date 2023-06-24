@@ -1,19 +1,18 @@
 "use client";
 import { Pagination } from "@/components/Pagination";
 import { PokemonsList } from "@/components/PokemonsList";
-import { MainContainer, Container } from "./containerPage";
+import styles from "./page.module.css";
 
-// import styles from "./page.module.css";
+// import { MainContainer, Container } from "./containerPage";
 
 export default function Home() {
   return (
-    //className={styles.main}
-    <MainContainer>
-      <Container>
+    <main className="mainContainer">
+      <div className="container">
         <Pagination />
         <hr />
         <PokemonsList />
-      </Container>
-    </MainContainer>
+      </div>
+    </main>
   );
 }

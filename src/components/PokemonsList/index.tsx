@@ -1,14 +1,14 @@
 "use client";
 import { usePokemon } from "@/context";
-import { StyledPokemonList } from "./styled";
 import { PokemonsCardList } from "../PokemonCardsList";
+import { Loading } from "../Loading";
 
 export const PokemonsList = () => {
-  const { pokemons } = usePokemon();
+  const { pokemons, pokemon, isLoading } = usePokemon();
 
   return (
-    <StyledPokemonList>
-      {pokemons?.map((pokemon) => (
+    <ul className="pokemonList">
+      {pokemon ? (
         <PokemonsCardList
           key={pokemon?.id}
           id={pokemon?.id}
@@ -19,7 +19,22 @@ export const PokemonsList = () => {
           name={pokemon?.name}
           types={pokemon?.types}
         />
-      ))}
-    </StyledPokemonList>
+      ) : isLoading ? (
+        <Loading />
+      ) : (
+        pokemons?.map((pokemon) => (
+          <PokemonsCardList
+            key={pokemon?.id}
+            id={pokemon?.id}
+            image={
+              pokemon?.sprites?.versions["generation-v"]?.["black-white"]
+                ?.animated?.front_default
+            }
+            name={pokemon?.name}
+            types={pokemon?.types}
+          />
+        ))
+      )}
+    </ul>
   );
 };

@@ -1,37 +1,39 @@
 "use client";
-
-import { ContainerHeader, InputContainer, TagLogo, Tagheader } from "./styled";
-import { Roboto } from "next/font/google";
-import { BsSearchHeart } from "react-icons/bs";
-
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-});
+import { usePokemon } from "@/context";
+import { useState } from "react";
 
 export const Header = () => {
+  const { searchPokemonByName } = usePokemon();
+  const [pokemon, setPokemon] = useState<string>("");
+
   const handleSearch = (event: string) => {
-    console.log(event);
+    setPokemon(event);
+  };
+  const onSearchButtom = () => {
+    searchPokemonByName(pokemon.toLocaleLowerCase());
   };
 
   return (
-    <ContainerHeader>
-      <Tagheader>
-        <TagLogo className={roboto.className} href="/">
+    <div className="container-header ">
+      <header className="tag-header">
+        <a className="tag-logo" href="/">
           Pokedex INB
-        </TagLogo>
+        </a>
 
         <div>
-          <InputContainer>
+          <div className="input-container">
             <input
               placeholder="Procurando por algo especifico ?"
               type="text"
               onChange={(e) => handleSearch(e.target.value)}
             />
-            <span className="searchIcon"> 🔍{/* <BsSearchHeart /> */}</span>
-          </InputContainer>
+
+            <button className="search" onClick={onSearchButtom}>
+              🔍
+            </button>
+          </div>
         </div>
-      </Tagheader>
-    </ContainerHeader>
+      </header>
+    </div>
   );
 };

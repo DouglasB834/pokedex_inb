@@ -1,6 +1,15 @@
+import { IPokemonCard } from "./listPokemons";
+
 export interface IPokemonsProvider {
   pokemons: IPokemon[];
-  setOffset: (offset: number) => void;
+  page: number;
+  isLoading: boolean;
+  setPage: (name: number) => void;
+  totalPages: number;
+  searchPokemon: string;
+  setSearchPokemon: (name: string) => void;
+  searchPokemonByName: (name: string) => void;
+  pokemon?: IPokemonCard;
 }
 
 export interface IChildren {
@@ -14,14 +23,10 @@ export interface IResPokemons {
   previous: string;
   results: IPokemon[];
 }
-export interface IPokemon {
-  id: number;
-  stats: IStats[];
-  sprites: ISprites;
-  name: string;
+export interface IPokemon extends IPokemonCard {
   url: string;
-  types: ITypes[];
 }
+
 export interface IStats {
   base_stat: number;
   effort: number;
@@ -56,5 +61,6 @@ export interface IGenerationV {
 export interface IBlackWhite {
   animated: {
     front_default: string;
+    front_shiny: string;
   };
 }
