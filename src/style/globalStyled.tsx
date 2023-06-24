@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 
 @media (max-width: 770px) {
   .container-header {
-    height: 75px;
+    height: 80px;
   }
 }
 
@@ -78,8 +78,18 @@ export const GlobalStyle = createGlobalStyle`
   background-color: var(--second-color);
 }
 
-.input-container svg {
-  color: var(--text-color-1);
+.search{
+  border: none;
+  background-color: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: .2s linear;
+  border-radius: 1rem;
+}
+
+.search:hover{
+  background-color: var(--third-color);
+
 }
 
 @media (max-width: 427px) {
@@ -107,6 +117,10 @@ export const GlobalStyle = createGlobalStyle`
   padding: 5px;
   border-radius: 5px;
 }
+.paginacao button{
+  border:  none;
+  cursor: pointer;
+}
 
 .container-favorite h3 {
   color: var(--text-color-1);
@@ -132,7 +146,26 @@ export const GlobalStyle = createGlobalStyle`
 
 
 
+/* loading screen */
 
+.loading-screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.loading-screen h2 {
+  position: absolute;
+  top: 80px;
+}
+
+.loading-screen img {
+  background: url('https://res.cloudinary.com/ahmedagadir/image/upload/v1530730099/pokemon-API/pokedex.png') no-repeat ;
+  object-fit: cover;
+  position: absolute;
+  width: 340px;
+}
 
 
 

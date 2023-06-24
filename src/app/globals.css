@@ -4,7 +4,16 @@
   --third-color: #f16c38;
   --fourth-color: #d85c64;
   --fifth-color: #703f5d;
+  --sixth-color: #f2f2f2;
+  --border-color: #ccc;
   --text-color-1: #ffffff;
+
+  --hp-color: #ff0000;
+  --attack-color: #f08030;
+  --defense-color: #f8d030;
+  --spAtack-color: #6890f0;
+  --spDefense-color: #78c850;
+  --speed-color: #f85888;
 }
 .mainContainer {
   display: flex;
@@ -40,18 +49,12 @@ body {
   overflow-x: hidden;
 }
 
-/* body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
-
 a,
 li {
   list-style: none;
   text-decoration: none;
+}
+
+.loading {
+  color: var(--text-color-1);
 }

@@ -1,4 +1,7 @@
 "use client";
+
+import { usePokemon } from "@/context";
+
 // import { ContainerFavorite, ContainerPaginacao } from "./styled";
 // import { Avatar, AvatarGroup } from "@chakra-ui/react";
 export const Pagination = () => {
@@ -14,6 +17,21 @@ export const Pagination = () => {
     imgvaforitos,
     imgvaforitos,
   ];
+  const { page, totalPages, setPage } = usePokemon();
+
+  const prevePage = () => {
+    if (page > 0) {
+      setPage(page - 1);
+    }
+    console.log("proxima pagina");
+  };
+  const nextPage = () => {
+    if (page + 1 != totalPages) {
+      setPage(page + 1);
+    }
+    console.log("pagina anterior");
+  };
+
   return (
     <div className="container-paginacao">
       <div className="container-favorite">
@@ -26,9 +44,9 @@ export const Pagination = () => {
       </div>
 
       <div className="paginacao">
-        {[1, 2, 3, 4, 5].map((item) => (
-          <p key={item}>{item}</p>
-        ))}
+        <button onClick={prevePage}>⬅️</button>
+        {page + 1} de {totalPages}
+        <button onClick={nextPage}>➡️</button>
       </div>
     </div>
   );

@@ -1,16 +1,16 @@
 "use client";
-
-// import { ContainerHeader, InputContainer, TagLogo, Tagheader } from "./styled";
-import { Roboto } from "next/font/google";
-
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-});
+import { usePokemon } from "@/context";
+import { useState } from "react";
 
 export const Header = () => {
+  const { searchPokemonByName } = usePokemon();
+  const [pokemon, setPokemon] = useState<string>("");
+
   const handleSearch = (event: string) => {
-    console.log(event);
+    setPokemon(event);
+  };
+  const onSearchButtom = () => {
+    searchPokemonByName(pokemon.toLocaleLowerCase());
   };
 
   return (
@@ -27,7 +27,10 @@ export const Header = () => {
               type="text"
               onChange={(e) => handleSearch(e.target.value)}
             />
-            <span className="searchIcon"> 🔍</span>
+
+            <button className="search" onClick={onSearchButtom}>
+              🔍
+            </button>
           </div>
         </div>
       </header>

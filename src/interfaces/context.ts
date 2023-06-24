@@ -2,7 +2,14 @@ import { IPokemonCard } from "./listPokemons";
 
 export interface IPokemonsProvider {
   pokemons: IPokemon[];
-  setOffset: (offset: number) => void;
+  page: number;
+  isLoading: boolean;
+  setPage: (name: number) => void;
+  totalPages: number;
+  searchPokemon: string;
+  setSearchPokemon: (name: string) => void;
+  searchPokemonByName: (name: string) => void;
+  pokemon?: IPokemonCard;
 }
 
 export interface IChildren {
