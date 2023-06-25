@@ -9,9 +9,13 @@ export const PokemonsCardList = (props: IPokemonCardList) => {
   const handlePokemonRouter = (id: number) => {
     router.push(`/pokemon?id=${id}`);
   };
-
   return (
     <StyledPookemonCards onClick={() => handlePokemonRouter(props?.id)}>
+      <span className="light"></span>
+      <span className="light"></span>
+      <span className="light"></span>
+      <span className="light"></span>
+
       <figure>
         <img src={props?.image} alt={props?.name} title={props?.name} />
       </figure>

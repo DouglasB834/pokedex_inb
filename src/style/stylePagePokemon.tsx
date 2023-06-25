@@ -34,6 +34,7 @@ export const StylePagePokemon = createGlobalStyle`
     @media (max-width: 540px ){
   position: absolute;
   left: 10px;
+  z-index: 1;
 }
 }
     

@@ -10,7 +10,7 @@ export const UseContextPokemon = createContext<IPokemonsProvider>(
 
 export const UseContextPokemonProvider = ({ children }: IChildren) => {
   const [pokemons, setPokemons] = useState<IPokemon[]>([] as IPokemon[]);
-  const [pokemon, setPokemon] = useState<IPokemonCard | undefined>(undefined);
+  const [pokemon, setPokemon] = useState<IPokemonCard | null>(null);
   const [searchPokemon, setSearchPokemon] = useState<string>("");
   const [speciesPokemon, setSpeciesPokemon] = useState<IPokemonSpecies>(
     {} as IPokemonSpecies
@@ -60,6 +60,23 @@ export const UseContextPokemonProvider = ({ children }: IChildren) => {
       console.log(error);
     }
   };
+  const handleFavorite = (name: string, img: string) => {
+    const storedPokemons = JSON.parse(localStorage.getItem("pokemons") || "[]");
+    const existingPokemonIndex = storedPokemons.findIndex(
+      (item: { name: string }) => item.name === name
+    );
+
+    if (existingPokemonIndex >= 0) {
+      // Remove o Pokémon da lista de favoritos
+      storedPokemons.splice(existingPokemonIndex, 1);
+      console.log(`Pokémon ${name} removido da lista de favoritos.`);
+    } else {
+      // Adiciona o Pokémon à lista de favoritos
+      storedPokemons.push({ name: name, img: img });
+      console.log(`Pokémon ${name} adicionado à lista de favoritos.`);
+    }
+    localStorage.setItem("pokemons", JSON.stringify(storedPokemons));
+  };
 
   useEffect(() => {
     fetchPokemons(limitPage, limitPage * page);
@@ -78,6 +95,8 @@ export const UseContextPokemonProvider = ({ children }: IChildren) => {
         searchPokemonByName,
         pokemonSpecies,
         speciesPokemon,
+        handleFavorite,
+        setPokemon,
       }}
     >
       {children}

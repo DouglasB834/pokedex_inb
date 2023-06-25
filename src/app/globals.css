@@ -6,7 +6,10 @@
   --fifth-color: #703f5d;
   --sixth-color: #f2f2f2;
   --border-color: #ccc;
+  --border-color-2: #3a4e81;
   --text-color-1: #ffffff;
+
+  --bg-cards-color: #332e59;
 
   --hp-color: #ff0000;
   --attack-color: #f08030;
@@ -34,7 +37,7 @@
   justify-content: space-around;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, 256px);
-  margin-top: 1rem;
+  margin: 1rem 0;
 }
 
 * {

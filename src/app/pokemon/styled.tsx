@@ -96,9 +96,11 @@ export const ContainerSpecies = styled.div`
   min-width: 300px;
   max-width: 500px;
   padding: 6px 1rem;
-  margin: 0 10px 5px 0;
+  margin: 0 10px 4rem 0;
   border-radius: 5px;
   font-family: inherit;
+  align-self: flex-end;
+
   h2 {
     color: var(--fifth-color);
   }
