@@ -10,13 +10,11 @@ export const Pagination = () => {
     if (page > 0) {
       setPage(page - 1);
     }
-    console.log("proxima pagina");
   };
   const nextPage = () => {
     if (page + 1 != totalPages) {
       setPage(page + 1);
     }
-    console.log("pagina anterior");
   };
 
   const [favorites, setFavorites] = useState([]);
@@ -45,13 +43,15 @@ export const Pagination = () => {
 
           <div className="pagination">
             <button onClick={prevePage}>⬅️</button>
-            {page + 1} de {totalPages}
+            <p>
+              {page + 1} de {totalPages}
+            </p>
             <button onClick={nextPage}>➡️</button>
           </div>
         </div>
         <ul>
           <button className="clean-button" onClick={cleanHandle}>
-            Limpar
+            Limpar pesquisa
           </button>
           {favorites?.map((item: { img: string; name: string }, i: number) => (
             <li key={i} onClick={() => handleFavorite(item?.name)}>
