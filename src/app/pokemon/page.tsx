@@ -17,7 +17,7 @@ export default function Pokemon({
 }: {
   searchParams: { id: string };
 }) {
-  const { pokemonSpecies, speciesPokemon } = usePokemon();
+  const { pokemonSpecies, speciesPokemon, handleFavorite } = usePokemon();
   const [pokemon, setPokemon] = useState<IPokemonCard>({} as IPokemonCard);
 
   const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1);
@@ -45,7 +45,7 @@ export default function Pokemon({
   const handleRedirect = () => {
     router.push(`/`);
   };
-  console.log(speciesPokemon);
+
   return (
     <div className="mainContainer">
       <div className="containerPage">
@@ -56,6 +56,14 @@ export default function Pokemon({
           <div className="pokemon-container">
             <div className="power-level">
               <span> CP {pokemon.base_experience}</span>
+              <button
+                className="favorite"
+                onClick={() =>
+                  handleFavorite(pokemon?.name, pokemon?.sprites?.front_default)
+                }
+              >
+                ⭐
+              </button>
               <div className="pokemon-snap">
                 <img
                   src={pokemon?.sprites?.front_default}
@@ -131,7 +139,6 @@ export default function Pokemon({
               </GrafitStatus>
             </div>
           </div>
-          {/* card pokemon info  */}
         </div>
 
         <ContainerSpecies>
@@ -155,7 +162,7 @@ export default function Pokemon({
                 <h4> Pertence ao Gruope:</h4>
                 <li>
                   {speciesPokemon?.egg_groups?.map((eggGroup, i) => (
-                    <p>{eggGroup?.name}</p>
+                    <p key={i}>{eggGroup?.name}</p>
                   ))}
                 </li>
               </ul>

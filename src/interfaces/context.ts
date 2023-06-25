@@ -10,8 +10,10 @@ export interface IPokemonsProvider {
   searchPokemon: string;
   setSearchPokemon: (name: string) => void;
   searchPokemonByName: (name: string) => void;
-  pokemon?: IPokemonCard;
+  pokemon?: IPokemonCard | null;
+  setPokemon?: (pokemon: IPokemonCard | null) => void | null;
   speciesPokemon?: IPokemonSpecies;
+  handleFavorite(name: string, img: string): void;
 }
 
 export interface IChildren {

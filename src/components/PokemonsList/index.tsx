@@ -8,7 +8,7 @@ export const PokemonsList = () => {
 
   return (
     <ul className="pokemonList">
-      {pokemon ? (
+      {pokemon && pokemon != null ? (
         <PokemonsCardList
           key={pokemon?.id}
           id={pokemon?.id}

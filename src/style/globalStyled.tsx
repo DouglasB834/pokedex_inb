@@ -100,10 +100,18 @@ export const GlobalStyle = createGlobalStyle`
 // ########## paginação  ###########
 
 .container-paginacao {
+  width: 100%;
   display: flex;
   align-items: start;
   padding: 1.4rem 0;
   justify-content: space-between;  
+  flex-direction: column;
+ .title-favorite-pagination{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+ }
 }
 
 .container-paginacao .paginacao {
@@ -119,7 +127,9 @@ export const GlobalStyle = createGlobalStyle`
   border:  none;
   cursor: pointer;
 }
-
+.container-favorite{
+  width: 100%;
+}
 .container-favorite h3 {
   color: var(--text-color-1);
   margin-bottom: 1rem;
@@ -130,12 +140,34 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     display: flex;
     gap :1rem ; 
+    align-items: flex-start;
+    align-items: center;
+    overflow-x: auto;
 }
 .container-favorite ul  li{
-    background-color: var(--fourth-color);
-    border-radius: 50%;
-    width: 100%;
     display: flex;
+    cursor: pointer;
+  
+    img{
+      transition: .2s linear;
+      width: 65px;
+      background-color: var(--fourth-color);
+    border-radius: 50%;
+    :hover{
+      background-color: var(--fifth-color);
+    }
+    }
+}
+.clean-button{
+  font-size: 1rem;
+  padding: .7rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .2s linear;
+  :hover{
+    background-color: var(--border-color);
+  }
 }
 
 /* loading screen */
@@ -158,5 +190,12 @@ export const GlobalStyle = createGlobalStyle`
   position: absolute;
   width: 340px;
 }
-
+.favorite{
+  /* position: absolute; */
+  /* z-index: 1; */
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: .2s linear;
+  margin-left: 1rem;
+}
 `;
