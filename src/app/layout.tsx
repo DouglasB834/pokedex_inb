@@ -11,11 +11,6 @@ const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
 });
 
-export const metadata = {
-  title: "Pokedex INB",
-  description: "Pokedex criado para fazer pesquisa sobre pokemons ",
-};
-
 export default function RootLayout({
   children,
 }: {
