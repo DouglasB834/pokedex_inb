@@ -56,7 +56,7 @@ export const StylePagePokemon = createGlobalStyle`
       font-size: 1em;
       line-height: 1;
       
-      span {
+      span {  
         font-size: 1.5em;
         color: var(--text-color-1);
       }
@@ -67,6 +67,7 @@ export const StylePagePokemon = createGlobalStyle`
         top: 25px;
         left: 20%;
         z-index: 3;
+        
         img {
           width: 65%;
           object-fit: cover;
@@ -82,7 +83,7 @@ export const StylePagePokemon = createGlobalStyle`
         border-left: 2px solid var(--text-color-1);
         border-top: 2px solid var(--text-color-1);
         border-right: 2px solid var(--third-color);
-        border-radius: 100%;
+        border-radius: 50%;
         z-index: 1;
       }
       
@@ -104,7 +105,7 @@ export const StylePagePokemon = createGlobalStyle`
         
         .hp {
           position: relative;
-          margin: 15px 0 0;
+          margin-top: 1rem ;
           font-weight: 600;
           &:before {
             background-color: var(--fifth-color);
@@ -135,15 +136,15 @@ export const StylePagePokemon = createGlobalStyle`
           width: 33%;
           margin: 10px 0;
           padding: 0 8px;
-          font-size: .85em;
+          font-size: .8rem;
           font-weight: 600;
           text-align: center;
           border-right: 1px solid var(--border-color );
           &:last-child {
             border-right: none;
           }
-          span {
-            font-size: .75em;
+          p {
+            font-size: .7rem;
           }
         }
       } // stats
@@ -151,26 +152,16 @@ export const StylePagePokemon = createGlobalStyle`
       .info {
         text-align: center;
         margin: 15px 0;
-        padding: 0 8px;
-        font-weight: 600;
-        line-height: 1;
+        padding: 0 8px;      
         border-bottom: 1px solid var(--border-color );
 
         h3{
-            font-size: 1.2rem;
+          font-weight: 600;
+          line-height: 1; 
+          font-size: 1.2rem;
         }
         
       } // info
-      
-      .grafit-stats {
-        flex-direction: column;
-        display: flex;
-        padding: 10px 0;
-        font-size: .75em;
-        font-weight: 600;
-        border-top: 1px solid var(--border-color);
-
-      } // grafit-stats
       
     } // card
     

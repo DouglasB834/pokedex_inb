@@ -99,7 +99,7 @@ export const GlobalStyle = createGlobalStyle`
 
 // ########## paginação  ###########
 
-.container-paginacao {
+.container-pagination {
   width: 100%;
   display: flex;
   align-items: start;
@@ -114,7 +114,7 @@ export const GlobalStyle = createGlobalStyle`
  }
 }
 
-.container-paginacao .paginacao {
+.container-pagination .pagination {
   display: flex;
   gap: 5px;
   align-items: center;
@@ -123,7 +123,7 @@ export const GlobalStyle = createGlobalStyle`
   border-radius: 5px;
 }
 
-.paginacao button{
+.pagination button{
   border:  none;
   cursor: pointer;
 }
@@ -144,10 +144,10 @@ export const GlobalStyle = createGlobalStyle`
     align-items: center;
     overflow-x: auto;
 }
+
 .container-favorite ul  li{
     display: flex;
     cursor: pointer;
-  
     img{
       transition: .2s linear;
       width: 65px;
@@ -158,6 +158,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     }
 }
+
 .clean-button{
   font-size: 1rem;
   padding: .7rem;
@@ -191,8 +192,6 @@ export const GlobalStyle = createGlobalStyle`
   width: 340px;
 }
 .favorite{
-  /* position: absolute; */
-  /* z-index: 1; */
   font-size: 1.2rem;
   cursor: pointer;
   transition: .2s linear;

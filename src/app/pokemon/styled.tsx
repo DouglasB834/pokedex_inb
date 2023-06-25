@@ -144,4 +144,8 @@ export const ContainerSpecies = styled.div`
       margin-bottom: 1rem;
     }
   }
+
+  @media (max-width: 886px) {
+    margin: 1rem auto;
+  }
 `;

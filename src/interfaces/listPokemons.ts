@@ -21,11 +21,13 @@ export interface IPokemonCard {
   stats: IStats[];
   weight: number;
 }
+
 export interface IAbilities {
   ability: {
     name: string;
   };
 }
+
 export interface IForms {
   name: string;
   url: string;
@@ -39,10 +41,12 @@ export interface IPokemonSpecies {
   color: {
     name: string;
   };
+
   egg_groups: IEgg_groups[];
   evolution_chain: {
     url: string;
   };
+
   flavor_text_entries: IFlavor_text_entries[];
   growth_rate: {
     name: string;
@@ -50,6 +54,7 @@ export interface IPokemonSpecies {
   habitat: {
     name: string;
   };
+
   is_baby: boolean;
   shape: {
     name: string;
@@ -60,6 +65,7 @@ export interface IEgg_groups {
   name: string;
   url: string;
 }
+
 export interface IFlavor_text_entries {
   flavor_text: string;
   language: {

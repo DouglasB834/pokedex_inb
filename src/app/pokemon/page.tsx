@@ -1,7 +1,7 @@
 "use client";
 import { IPokemonCard } from "@/interfaces/listPokemons";
 import { useState, useEffect } from "react";
-import { api } from "@/utils/axios";
+import { api } from "@/api/axios";
 import {
   ContainerSpecies,
   GrafitStatus,
@@ -11,6 +11,7 @@ import {
 import { IconBack } from "@/assets/iconsBack";
 import { useRouter } from "next/navigation";
 import { usePokemon } from "@/context";
+import { capitalize } from "@/utils";
 
 export default function Pokemon({
   searchParams,
@@ -19,8 +20,6 @@ export default function Pokemon({
 }) {
   const { pokemonSpecies, speciesPokemon, handleFavorite } = usePokemon();
   const [pokemon, setPokemon] = useState<IPokemonCard>({} as IPokemonCard);
-
-  const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1);
 
   const handlePokemon = () => {
     const getPokemon = async (id: number) => {
@@ -56,6 +55,7 @@ export default function Pokemon({
           <div className="pokemon-container">
             <div className="power-level">
               <span> CP {pokemon.base_experience}</span>
+
               <button
                 className="favorite"
                 onClick={() =>
@@ -64,12 +64,13 @@ export default function Pokemon({
               >
                 ⭐
               </button>
-              <div className="pokemon-snap">
+
+              <figure className="pokemon-snap">
                 <img
                   src={pokemon?.sprites?.front_default}
                   alt={pokemon?.name}
                 />
-              </div>
+              </figure>
               <div className="half-circle"></div>
             </div>
 
@@ -84,26 +85,23 @@ export default function Pokemon({
               <ul className="stats">
                 <li>
                   {pokemon.types?.map((type, i) => (
-                    <p key={i}>{type?.type?.name}</p>
+                    <span key={i}>{type?.type?.name} </span>
                   ))}
-                  <br />
-                  <span>Type</span>
+                  <p>Type</p>
                 </li>
                 <li>
-                  {pokemon.weight}
-                  <br />
-                  <span>Weight</span>
+                  {pokemon?.weight}
+                  <p>Weight</p>
                 </li>
                 <li>
-                  {pokemon.height}
-                  <br />
-                  <span>Height</span>
+                  {pokemon?.height}
+                  <p>Height</p>
                 </li>
               </ul>
 
               <div className="info">
                 <h3>Forma Rara</h3>
-                <img src={pokemon.sprites?.front_shiny} alt="" />
+                <img src={pokemon?.sprites?.front_shiny} alt="" />
               </div>
 
               <Habilites>
@@ -117,7 +115,7 @@ export default function Pokemon({
 
               <GrafitStatus>
                 <h3>Status</h3>
-                {pokemon.stats?.map((stat, i) => (
+                {pokemon?.stats?.map((stat, i) => (
                   <ListStatus
                     status={stat?.base_stat}
                     name={stat?.stat?.name}
@@ -159,7 +157,7 @@ export default function Pokemon({
                 Corpo: <span>{speciesPokemon?.shape?.name}</span>{" "}
               </p>
               <ul>
-                <h4> Pertence ao Gruope:</h4>
+                <h4>Pertence ao Gruope:</h4>
                 <li>
                   {speciesPokemon?.egg_groups?.map((eggGroup, i) => (
                     <p key={i}>{eggGroup?.name}</p>
