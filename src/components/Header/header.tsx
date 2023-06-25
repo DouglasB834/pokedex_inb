@@ -23,7 +23,7 @@ export const Header = () => {
         <div>
           <div className="input-container">
             <input
-              placeholder="Procurando por algo especifico ?"
+              placeholder="Procurando por algum pokémon?"
               type="text"
               onChange={(e) => handleSearch(e.target.value)}
             />

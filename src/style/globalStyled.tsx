@@ -76,7 +76,12 @@ export const GlobalStyle = createGlobalStyle`
   line-height: 22px;
   outline: none;
   background-color: var(--second-color);
+  ::placeholder {
+    color: var(--text-color-1);
+  }
+
 }
+
 
 .search{
   border: none;
@@ -85,7 +90,10 @@ export const GlobalStyle = createGlobalStyle`
   cursor: pointer;
   transition: .2s linear;
   border-radius: 1rem;
+  color: var(--text-color-1);
+ 
 }
+
 
 .search:hover{
   background-color: var(--third-color);
@@ -118,14 +126,28 @@ export const GlobalStyle = createGlobalStyle`
   display: flex;
   gap: 5px;
   align-items: center;
-  background-color: #fff;
+  background-color: var(--text-color-1);
   padding: 5px;
   border-radius: 5px;
+  >p{
+    font-size: 1rem;
+    color: var(--fifth-color);
+  }
 }
 
 .pagination button{
+  border-radius: 5px;
   border:  none;
   cursor: pointer;
+  font-size: 1.2rem;
+  transition: .2s linear  ;
+  :hover{
+    background-color: var(--fifth-color);
+  }
+
+  @media (max-width: 427px) {
+    font-size: .9rem;
+  }
 }
 .container-favorite{
   width: 100%;
@@ -196,5 +218,9 @@ export const GlobalStyle = createGlobalStyle`
   cursor: pointer;
   transition: .2s linear;
   margin-left: 1rem;
+  border: none;
+  :focus{
+    background-color: var(--spDefense-color);
+  }
 }
 `;

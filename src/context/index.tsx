@@ -70,11 +70,9 @@ export const UseContextPokemonProvider = ({ children }: IChildren) => {
     if (existingPokemonIndex >= 0) {
       // Remove o Pokémon da lista de favoritos
       storedPokemons.splice(existingPokemonIndex, 1);
-      console.log(`Pokémon ${name} removido da lista de favoritos.`);
     } else {
       // Adiciona o Pokémon à lista de favoritos
       storedPokemons.push({ name: name, img: img });
-      console.log(`Pokémon ${name} adicionado à lista de favoritos.`);
     }
     localStorage.setItem("pokemons", JSON.stringify(storedPokemons));
   };
