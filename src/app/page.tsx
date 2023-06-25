@@ -1,9 +1,6 @@
 "use client";
-import { Pagination } from "@/components/Pagination";
+import { Pagination } from "@/components/PaginationAndFavorites";
 import { PokemonsList } from "@/components/PokemonsList";
-import styles from "./page.module.css";
-
-// import { MainContainer, Container } from "./containerPage";
 
 export default function Home() {
   return (

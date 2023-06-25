@@ -2,15 +2,7 @@
 import { usePokemon } from "@/context";
 import { useState, useEffect } from "react";
 
-// import { ContainerFavorite, ContainerPaginacao } from "./styled";
-// import { Avatar, AvatarGroup } from "@chakra-ui/react";
 export const Pagination = () => {
-  const imgvaforitos = {
-    img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif",
-    id: 1,
-    name: "bulbasaur",
-  };
-
   const { page, totalPages, setPage, searchPokemonByName, setPokemon } =
     usePokemon();
 
@@ -46,12 +38,12 @@ export const Pagination = () => {
   }, []);
 
   return (
-    <div className="container-paginacao">
+    <div className="container-pagination">
       <div className="container-favorite">
         <div className="title-favorite-pagination">
           <h3>Seus Pokemons favoritos</h3>
 
-          <div className="paginacao">
+          <div className="pagination">
             <button onClick={prevePage}>⬅️</button>
             {page + 1} de {totalPages}
             <button onClick={nextPage}>➡️</button>
@@ -63,7 +55,7 @@ export const Pagination = () => {
           </button>
           {favorites?.map((item: { img: string; name: string }, i: number) => (
             <li key={i} onClick={() => handleFavorite(item?.name)}>
-              {<img src={item.img} alt=" item" />}
+              {<img src={item.img} alt="item" />}
             </li>
           ))}
         </ul>

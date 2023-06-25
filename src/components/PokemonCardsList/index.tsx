@@ -2,6 +2,7 @@
 import { IPokemonCardList } from "@/interfaces/listPokemons";
 import { StyledPookemonCards } from "./styled";
 import { useRouter } from "next/navigation";
+import { capitalize } from "@/utils";
 
 export const PokemonsCardList = (props: IPokemonCardList) => {
   const router = useRouter();
@@ -21,10 +22,10 @@ export const PokemonsCardList = (props: IPokemonCardList) => {
       </figure>
       <div>
         <p>N: {props?.id}</p>
-        <h3>{props?.name}</h3>
+        <h3>{capitalize(props?.name)}</h3>
         <div>
           {props?.types?.map((type, i) => (
-            <span key={i}> {type?.type?.name} </span>
+            <span key={i}> {capitalize(type?.type?.name)} </span>
           ))}
         </div>
       </div>

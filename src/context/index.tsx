@@ -1,7 +1,7 @@
 "use client";
 import { IChildren, IPokemon, IPokemonsProvider } from "@/interfaces/context";
 import { IPokemonCard, IPokemonSpecies } from "@/interfaces/listPokemons";
-import { api, getAllPokemon } from "@/utils/axios";
+import { api, getAllPokemon } from "@/api/axios";
 import { createContext, useContext, useEffect, useState } from "react";
 
 export const UseContextPokemon = createContext<IPokemonsProvider>(
@@ -60,6 +60,7 @@ export const UseContextPokemonProvider = ({ children }: IChildren) => {
       console.log(error);
     }
   };
+
   const handleFavorite = (name: string, img: string) => {
     const storedPokemons = JSON.parse(localStorage.getItem("pokemons") || "[]");
     const existingPokemonIndex = storedPokemons.findIndex(
@@ -81,6 +82,7 @@ export const UseContextPokemonProvider = ({ children }: IChildren) => {
   useEffect(() => {
     fetchPokemons(limitPage, limitPage * page);
   }, [pokemon, page]);
+
   return (
     <UseContextPokemon.Provider
       value={{
