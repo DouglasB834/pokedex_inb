@@ -4,17 +4,20 @@ export const GlobalStyle = createGlobalStyle`
 
 //Header
 .container-header {
+  position: relative;
   width: 100%;
-  height: 45px;
+  height: 75px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 1rem auto;
+  padding: 1rem 0;
+  background: url("http://localhost:3000/bg-header.png" ) no-repeat center/cover;;
+ 
 }
 
 @media (max-width: 770px) {
   .container-header {
-    height: 80px;
+    height: 100px;
   }
 }
 
@@ -24,7 +27,8 @@ export const GlobalStyle = createGlobalStyle`
   align-items: center;
   margin: 0 auto;
   justify-content: space-between;
-  background-color: white;
+  
+  object-fit: cover;
   gap: 1rem;
 }
 
@@ -40,6 +44,9 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     margin-bottom: 5px;
   }
+  .tag-logo {
+    font-size: 30px;
+  }
 }
 
 .tag-logo {
@@ -50,7 +57,7 @@ export const GlobalStyle = createGlobalStyle`
   transition: 0.2s linear;
 }
 
-@media (max-width: 427px) {
+@media (max-width: 767px) {
   .tag-logo {
     font-size: 30px;
   }
@@ -64,6 +71,7 @@ export const GlobalStyle = createGlobalStyle`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 5px;
 }
 
 .input-container > input {

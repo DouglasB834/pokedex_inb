@@ -49,7 +49,11 @@ export default function Pokemon({
     <div className="mainContainer">
       <div className="containerPage">
         <div className="card-container">
-          <button onClick={handleRedirect} className="back-button">
+          <button
+            title="Voltar"
+            onClick={handleRedirect}
+            className="back-button"
+          >
             <IconBack />
           </button>
           <div className="pokemon-container">

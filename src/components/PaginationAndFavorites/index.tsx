@@ -22,6 +22,7 @@ export const Pagination = () => {
   const handleFavorite = (name: string) => {
     searchPokemonByName(name);
   };
+
   const cleanHandle = () => {
     if (setPokemon) {
       setPokemon(null);
@@ -55,7 +56,7 @@ export const Pagination = () => {
           </button>
           {favorites?.map((item: { img: string; name: string }, i: number) => (
             <li key={i} onClick={() => handleFavorite(item?.name)}>
-              {<img src={item.img} alt="item" />}
+              {<img src={item.img} alt={item.name} />}
             </li>
           ))}
         </ul>
