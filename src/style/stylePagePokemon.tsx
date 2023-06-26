@@ -19,6 +19,7 @@ export const StylePagePokemon = createGlobalStyle`
 }
 
 .back-button{
+  
     border: none;
     background-color: transparent;
     width: 30px;
