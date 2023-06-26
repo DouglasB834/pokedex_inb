@@ -11,9 +11,10 @@ export const GlobalStyle = createGlobalStyle`
   align-items: center;
   justify-content: space-between;
   padding: 1rem 0;
-  background: url("http://localhost:3000/bg-header.png" ) no-repeat center/cover;;
+  background: url("https://img.freepik.com/vetores-gratis/fundo-do-ceu-nublado-em-estilo-simples_23-2147796380.jpg?w=740&t=st=1687789130~exp=1687789730~hmac=b6cb5dbd5f0d24164efee8a17bbcc0c52d84a9dc3c3a5e87e2c6e3edd38daafc" ) no-repeat center/cover;
  
 }
+
 
 @media (max-width: 770px) {
   .container-header {
