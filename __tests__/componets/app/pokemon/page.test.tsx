@@ -8,7 +8,7 @@ import { UseContextPokemonProvider } from "@/context";
 jest.mock("next/navigation");
 
 describe("must fetch the correct id and render the correct data", () => {
-  const searchParams = { id: 1 };
+  const searchParams = { id: "1" };
 
   it("should render the component correctly", () => {
     render(
