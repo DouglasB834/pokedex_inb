@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project
 
 ## Getting Started
 
@@ -8,10 +8,6 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -31,6 +27,17 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
-### Você consegui ver como esta a aplicação online aqui >
+## Você consegui ver como esta a aplicação online aqui >
 
-#### https://pokedex-inb.vercel.app/
+## https://pokedex-inb.vercel.app/
+
+## Getting Started the tests
+
+### To run the tests in your application, follow the steps below:
+
+- Open a terminal or command prompt and navigate to your project's root directory
+- Run the test command. This is usually done by typing
+
+```bash
+npm run test
+```
